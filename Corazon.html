@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Corazón</title>
     <style>
         body {
             display: flex;
@@ -26,30 +26,46 @@
     </style>
 </head>
 <body>
-    <h1></h1>
+    
 
     <button id="heartBtn">❤️</button>
-    
     <button id="100Btn">💯</button>
 
-
     <audio id="heartAudio" src="audio1.mp3"></audio>
-   
     <audio id="100Audio" src="audio2.mp3"></audio>
 
     <script>
-       
         const heartBtn = document.getElementById('heartBtn');
         const heartAudio = document.getElementById('heartAudio');
-        heartBtn.addEventListener('click', () => {
-            heartAudio.play();
-        });
-
-      
         const btn100 = document.getElementById('100Btn');
         const audio100 = document.getElementById('100Audio');
+        
+        let currentAudio = null;
+
+        heartBtn.addEventListener('click', () => {
+            if (currentAudio && currentAudio !== heartAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            if (heartAudio.paused) {
+                heartAudio.play();
+                currentAudio = heartAudio;
+            } else {
+                heartAudio.currentTime = 0;
+            }
+        });
+
         btn100.addEventListener('click', () => {
-            audio100.play();
+            if (currentAudio && currentAudio !== audio100) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            if (audio100.paused) {
+                audio100.play();
+                currentAudio = audio100;
+            } else {
+                audio100.currentTime = 0;
+            }
         });
     </script>
 </body>
