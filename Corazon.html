@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            font-size: 50px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin: 20px;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+
+    <button id="heartBtn">❤️</button>
+    
+    <button id="100Btn">💯</button>
+
+
+    <audio id="heartAudio" src="audio1.mp3"></audio>
+   
+    <audio id="100Audio" src="audio2.mp3"></audio>
+
+    <script>
+       
+        const heartBtn = document.getElementById('heartBtn');
+        const heartAudio = document.getElementById('heartAudio');
+        heartBtn.addEventListener('click', () => {
+            heartAudio.play();
+        });
+
+      
+        const btn100 = document.getElementById('100Btn');
+        const audio100 = document.getElementById('100Audio');
+        btn100.addEventListener('click', () => {
+            audio100.play();
+        });
+    </script>
+</body>
+</html>
