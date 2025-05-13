@@ -39,7 +39,7 @@
         const heartAudio = document.getElementById('heartAudio');
         const btn100 = document.getElementById('100Btn');
         const audio100 = document.getElementById('100Audio');
-        
+
         let currentAudio = null;
 
         heartBtn.addEventListener('click', () => {
@@ -47,11 +47,12 @@
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
+
             if (heartAudio.paused) {
                 heartAudio.play();
                 currentAudio = heartAudio;
             } else {
-                heartAudio.currentTime = 0;
+                heartAudio.pause();
             }
         });
 
@@ -60,11 +61,12 @@
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
+
             if (audio100.paused) {
                 audio100.play();
                 currentAudio = audio100;
             } else {
-                audio100.currentTime = 0;
+                audio100.pause();
             }
         });
     </script>
